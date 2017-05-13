@@ -25,4 +25,21 @@ class graph(object):
 		else:
 			raise Exception("Node %s is already in graph" % node)
 
-		
+	def has_node(self, node):
+		"""
+		Return boolean to indicate whether a node exists in the graph
+		"""
+		return node in self.node_neighbors
+
+	def add_edge(self, edge, wt=DEFAULT_WEIGHT, label=""):
+		"""
+		Add an edge to the graph connecting two nodes.
+		An edge, here, is a pair if node like C(m, n) or a tuple
+		"""
+		u, v = edge
+		if (v not in self.node_neighbors[u] and u not in self.node_neighbors[v]):
+			self.node_neighbors[u][v] = wt
+			if (u!=v):
+				self.node_neighbors[v][u] = wt
+		else:
+			raise Exception("Edge (%s, %s)already added in the graph" % (u, v))
