@@ -43,3 +43,15 @@ class graph(object):
 				self.node_neighbors[v][u] = wt
 		else:
 			raise Exception("Edge (%s, %s)already added in the graph" % (u, v))
+
+	def add_edges(self, edges):
+		""" Added multiple edges in one go. Edges, here, is a list of
+		tuples"""
+		for edge in edges:
+			self.add_edge(edge)
+
+	def nodes(self):
+		"""
+		Returns a list of nodes in a graph
+		"""
+		return self.node_neighbors.keys()
