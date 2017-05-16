@@ -2,7 +2,7 @@
 Algorithms in Python
 ======
 
-Completed
+In Progress
 ---
 - Karatsuba Multiplication
 - Basic Sorting
