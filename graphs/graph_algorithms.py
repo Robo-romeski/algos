@@ -17,3 +17,10 @@ def BFS(gr, s):
 				nodes_explored.add(each)
 				q.append(each)
 	return nodes_explored
+
+
+def shortest_hops(gr, s):
+	""" Finds the shortest number of hops required
+  to reach a node from s. Returns a dict with mapping:
+  destination node from s -> no. of hops
+  """
