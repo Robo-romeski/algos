@@ -16,3 +16,23 @@ Ouput
  
 Output a single line containing the minimum number of candies Alice must give.
 """
+
+
+
+num_kids = int(raw_input())
+ratings = []
+
+for i in xrange(num_kids):
+	ratings.append(int(raw_input()))
+
+candies = [1 for i in xrange(num_kids)]
+for i in xrange(1, num_kids):
+	if ratings[i] > ratings[i-1]:
+		candies[i] = candies[i-1] + 1
+
+for i in xrange(num_kids - 2, -1, -1):
+	if ratings[i] > ratings[i+1]:
+		candies[i] = max(candies[i], candies[i+1] + 1)
+
+
+print reduce(lambda, x, y: x + y, candies)
