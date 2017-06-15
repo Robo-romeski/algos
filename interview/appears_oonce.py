@@ -26,8 +26,8 @@ def appears_once(array):
 				del (count[element])
 			else:
 				count[element] += 1
-			else:
-				count[element] + 1
+		else:
+			count[element] + 1
 
 	if len(count) > 1:
 		return False
