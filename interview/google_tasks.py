@@ -15,3 +15,30 @@ Output T lines. The ith line should contain the minimum maximum overshoot you
 can obtain by optimally scheduling the first i tasks on your list. See the sample
 input for clarification.
 """
+
+from heapq import heapify
+from heapq import heappush
+from heapq import heappop
+
+N = int(raw_input().strip())
+heap = []
+
+def min(heap):
+	time = 0
+	max = 0
+	while len(heap) > 0:
+		t = heappop(heap)
+		node = t
+		time =+ node[1]
+		if time > node[0]:
+			if max < time - node[0]:
+				max = time - node[0]
+	return max
+
+# read each element and count everything onsite as you read data
+for i in xrange(N):
+	d, m = raw_input().split()
+	d = int(d)
+	m = int(m)
+	heappush(heap , (d,m))
+	print min(heap[:])
