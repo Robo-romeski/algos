@@ -35,4 +35,4 @@ for i in xrange(num_kids - 2, -1, -1):
 		candies[i] = max(candies[i], candies[i+1] + 1)
 
 
-print reduce(lambda, x, y: x + y, candies)
+print reduce(lambda x, y: x + y, candies)
