@@ -1,4 +1,4 @@
-
+#import timeit
 CONST_MAX = 100000
 
 def printPairs(arr, arr_size, sum):
@@ -10,9 +10,14 @@ def printPairs(arr, arr_size, sum):
 		if(temp>=0 and binmap[temp] == 1):
 			print "Pair with given sum is", arr[i], "and", temp
 		binmap[arr[i]]=1
-
+"""
+def wrapper(func, *args, **kwargs):
+	def wrapped():
+		return func(*args, **kwargs)
+	return wrapped
+"""
 # driver program to check above function
 A = [1,4,45,6,10,-8]
 n = 16
-print "This sum we are looking for is", n
+print "The sum is ", n
 printPairs(A, len(A), n)
