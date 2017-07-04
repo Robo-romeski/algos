@@ -17,7 +17,10 @@ def wrapper(func, *args, **kwargs):
 	return wrapped
 """
 # driver program to check above function
+#commented out for import test
+"""
 A = [1,4,45,6,10,-8]
 n = 16
 print "The sum is ", n
 printPairs(A, len(A), n)
+"""
