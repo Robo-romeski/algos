@@ -15,4 +15,7 @@ if __name__ == '__main__':
 """
 import itertools
 
-itertools.permutations([7,17,17])
+
+perms = itertools.permutations([7,17,17,3,43,131,432])
+
+print list(perms)
