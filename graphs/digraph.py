@@ -10,5 +10,34 @@ class digraph(graph):
 	set_edge_weight, get_edge_weight, 
 
 	"""
+
+	DEFAULT_WEIGHT = 1
+	DIRECTED = True
+
 	def __init__(self):
 		self.node_neighbors = {}
+
+	def __str__(self):
+		return "Directed Graph \nNodes: %s \nEdges: %s" % (self.nodes(), self.edges())
+
+	def add_edge(self, edge, wt=DEFAULT_WEIGHT, label=""):
+		"""
+		Add an edge to the graph connecting two nodes.
+		An edge, here is a pair of node like C(m, n) pr a tuple
+		with m as head and n as tail : m -> n
+		"""
+		u, v = edge
+		if (v not in self.node_neighbors[u]):
+			self.node_neighbors[u][v] = wt
+		else:
+			raise Exception("Edge (%s, %s) already added in the graph" % (u, v))
+
+	def del_edge(self, edge):
+		"""
+		Deletes ans edge from a graph. An edge, here, is a pair like
+		C(m,n) or a tuple.
+		"""
+		u, v = edge
+		if not self.has_edge(edge):
+			raise Exception("Edge (%s, %s) not an existing edge" % (u, v))
+		del self.node_neighbors[u][v]
