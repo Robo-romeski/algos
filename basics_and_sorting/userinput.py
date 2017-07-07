@@ -1,3 +1,6 @@
 
-a = [1,'j',2,43,54,54,3]
+
+def user():
+	you = raw_input("Enter ")
+	return you
 
