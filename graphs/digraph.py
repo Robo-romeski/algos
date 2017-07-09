@@ -41,3 +41,17 @@ class digraph(graph):
 		if not self.has_edge(edge):
 			raise Exception("Edge (%s, %s) not an existing edge" % (u, v))
 		del self.node_neighbors[u][v]
+
+	def del_node(self, node):
+		"""
+		Deletes node from a graph
+		"""
+		for each in list(self.neighbors(node)):
+			if (each != node):
+				self.del_edge((node, each))
+		for n in self.nodes():
+			if self.has_edge((n, node)):
+				self.del_edge((n, node))
+		del(self.node_neighbors[node])
+
+	def get_transpose(self):
